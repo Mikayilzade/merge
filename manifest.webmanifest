@@ -1,14 +1,13 @@
 {
   "name": "Merge Arcana",
   "short_name": "Arcana",
-  "description": "Карманная merge-tactics игра",
+  "description": "Карманная merge-tactics игра с прозрачными характеристиками и 2,5D боями.",
   "start_url": "./",
-  "scope": "./",
   "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#100d1d",
+  "background_color": "#0d0b16",
   "theme_color": "#171229",
+  "orientation": "portrait",
   "icons": [
-    {"src":"assets/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
   ]
 }
