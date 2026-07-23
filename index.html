@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Merge Arcana">
-  <meta name="description" content="Карманная merge-tactics игра: собирай отряд, объединяй бойцов и переживи десять раундов.">
+  <meta name="description" content="Merge-tactics игра с прозрачными характеристиками, синергиями и 2,5D боями.">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/icon.svg">
@@ -15,7 +15,7 @@
   <title>Merge Arcana</title>
 </head>
 <body>
-  <div id="app" class="app-shell">
+  <div id="app" class="app-shell" data-arena-skin="violet">
     <header class="topbar">
       <button class="brand-button" data-action="home" aria-label="На главную">
         <span class="brand-rune">✦</span><span>MERGE ARCANA</span>
@@ -28,15 +28,16 @@
 
     <main id="screen" class="screen" aria-live="polite"></main>
 
-    <nav id="bottom-nav" class="bottom-nav">
-      <button data-action="home"><span>🏰</span><small>Главная</small></button>
-      <button data-action="collection"><span>🃏</span><small>Карты</small></button>
-      <button data-action="wizard"><span>🧙</span><small>Заклинатель</small></button>
+    <nav id="bottom-nav" class="bottom-nav" aria-label="Основная навигация">
+      <button data-action="home"><span>⌂</span><small>Главная</small></button>
+      <button data-action="collection"><span>♜</span><small>Герои</small></button>
+      <button data-action="store"><span>◇</span><small>Лавка</small></button>
+      <button data-action="wizard"><span>✦</span><small>Архонт</small></button>
     </nav>
 
     <aside id="ad-banner" class="ad-banner">
       <span class="ad-label">РЕКЛАМА</span>
-      <span>Здесь будет аккуратный баннер бесплатной версии</span>
+      <span>Баннер бесплатной версии · в бою скрыт</span>
       <button data-action="premium-preview">Убрать</button>
     </aside>
   </div>
