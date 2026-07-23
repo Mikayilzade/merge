@@ -1,10 +1,10 @@
 {
   "name": "merge-arcana",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "private": true,
   "type": "module",
   "scripts": {
     "test": "node --test tests/*.test.mjs",
-    "check": "node --check js/data.js && node --check js/art.js && node --check js/engine.js && node --check js/app.js"
+    "check": "node --check js/data.js && node --check js/art.js && node --check js/characters.js && node --check js/engine.js && node --check js/app.js && node --check sw.js"
   }
 }
