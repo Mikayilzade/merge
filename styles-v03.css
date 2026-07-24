@@ -1,7 +1,7 @@
 /* Merge Arcana 0.3 — tactical hex arena */
 html[data-merge-build="0.3.0"] .build-label::after { content:' · HEX'; }
 
-.match-screen.hex-v03 { --hex-w:13.1%; --hex-h:13.7%; }
+.match-screen.hex-v03 { --hex-w:12.2%; --hex-h:13.2%; }
 .match-screen.hex-v03 .match-header { position:relative; padding-bottom:34px; }
 .match-screen.hex-v03 .match-economy { opacity:.72; }
 .power-versus { position:absolute; left:50%; bottom:2px; transform:translateX(-50%); display:flex; align-items:center; gap:9px; min-width:184px; justify-content:center; padding:5px 10px; border-radius:15px; border:1px solid #ffffff1d; background:linear-gradient(90deg,#173431d9,#261a3ee8,#421c30d9); box-shadow:0 6px 18px #0005; z-index:30; }
@@ -15,9 +15,10 @@ html[data-merge-build="0.3.0"] .build-label::after { content:' · HEX'; }
 .hex-v03 .arena-sky { opacity:.42; }
 .hex-v03 .arena-floor { display:none; }
 
-.battle-hex-grid { position:absolute; inset:7% 3% 4%; z-index:4; pointer-events:none; }
-.battle-hex { --x:calc(4.5% + var(--hex-col) * 13.45% + (var(--hex-row) - 2 * floor(var(--hex-row) / 2)) * 6.72%); position:absolute; width:13.1%; height:15.1%; left:calc(4.5% + var(--hex-col) * 13.45%); top:calc(var(--hex-row) * 13.25%); clip-path:polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%); border:1px solid transparent; background:rgba(255,255,255,.032); filter:drop-shadow(0 0 1px rgba(255,255,255,.18)); }
-.battle-hex.row-1,.battle-hex.row-3,.battle-hex.row-5 { transform:translateX(50%); }
+/* These centres match engine-v03 hexToPercent(): x=9+12.7c+(odd?6.35:0), y=14+11.8r. */
+.battle-hex-grid { position:absolute; inset:0; z-index:4; pointer-events:none; overflow:hidden; }
+.battle-hex { position:absolute; width:12.2%; height:13.2%; left:calc(2.9% + var(--hex-col) * 12.7%); top:calc(7.4% + var(--hex-row) * 11.8%); clip-path:polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%); border:1px solid transparent; background:rgba(255,255,255,.032); filter:drop-shadow(0 0 1px rgba(255,255,255,.18)); }
+.battle-hex.row-1,.battle-hex.row-3,.battle-hex.row-5 { transform:translateX(52%); }
 .battle-hex.enemy-zone { background:linear-gradient(145deg,rgba(255,104,137,.065),rgba(122,62,132,.035)); box-shadow:inset 0 0 0 1px rgba(255,126,155,.12); }
 .battle-hex.player-zone { background:linear-gradient(145deg,rgba(81,224,177,.07),rgba(43,132,122,.04)); box-shadow:inset 0 0 0 1px rgba(104,235,194,.13); }
 .battle-hex.neutral-zone { background:linear-gradient(145deg,rgba(255,214,111,.075),rgba(115,96,56,.035)); box-shadow:inset 0 0 0 1px rgba(255,215,118,.14); }
