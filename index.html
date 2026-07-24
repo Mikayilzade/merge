@@ -7,17 +7,18 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Merge Arcana">
-  <meta name="description" content="Merge-tactics игра с прозрачными характеристиками, синергиями и 2,5D боями.">
-  <link rel="manifest" href="manifest.webmanifest?v=0.2.2">
-  <link rel="icon" href="assets/icon.svg?v=0.2.2" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/icon.svg?v=0.2.2">
-  <link rel="stylesheet" href="styles.css?v=0.2.2">
+  <meta name="description" content="Merge-tactics игра с гекс-ареной, прозрачными характеристиками, синергиями и 2,5D боями.">
+  <link rel="manifest" href="manifest.webmanifest?v=0.3.0">
+  <link rel="icon" href="assets/icon.svg?v=0.3.0" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon.svg?v=0.3.0">
+  <link rel="stylesheet" href="styles.css?v=0.3.0">
+  <link rel="stylesheet" href="styles-v03.css?v=0.3.0">
   <script type="importmap">
     {
       "imports": {
-        "./js/art.js": "./js/characters.js?v=0.2.2",
-        "./js/data.js": "./js/data.js?v=0.2.2",
-        "./js/engine.js": "./js/engine.js?v=0.2.2"
+        "./js/art.js": "./js/characters.js?v=0.3.0",
+        "./js/data.js": "./js/data.js?v=0.3.0",
+        "./js/engine.js": "./js/engine-v03.js?v=0.3.0"
       }
     }
   </script>
@@ -34,7 +35,7 @@
   <div id="app" class="app-shell" data-arena-skin="violet">
     <header class="topbar">
       <button class="brand-button" data-action="home" aria-label="На главную">
-        <span class="brand-rune">✦</span><span>MERGE ARCANA <small class="build-label">0.2.2</small></span>
+        <span class="brand-rune">✦</span><span>MERGE ARCANA <small class="build-label">0.3.0</small></span>
       </button>
       <div class="top-resources">
         <span class="resource"><b id="top-coins">0</b> 🪙</span>
@@ -48,7 +49,7 @@
       <button data-action="home"><span>⌂</span><small>Главная</small></button>
       <button data-action="collection"><span>♜</span><small>Герои</small></button>
       <button data-action="store"><span>◇</span><small>Лавка</small></button>
-      <a class="wiki-link" href="wiki.html?v=0.2.2"><span>?</span><small>Вики</small></a>
+      <a class="wiki-link" href="wiki.html?v=0.3.0"><span>?</span><small>Вики</small></a>
       <button data-action="wizard"><span>✦</span><small>Архонт</small></button>
     </nav>
 
@@ -62,7 +63,7 @@
   <div id="modal-root"></div>
   <div id="toast-root" class="toast-root"></div>
   <script type="module">
-    const BUILD = '0.2.2';
+    const BUILD = '0.3.0';
     const buildKey = 'merge-arcana-loaded-build';
     try {
       if (localStorage.getItem(buildKey) !== BUILD) {
@@ -75,6 +76,7 @@
         await registration?.update?.();
       }
       await import(`./js/app.js?v=${BUILD}`);
+      await import(`./js/v03-ui.js?v=${BUILD}`);
     } catch (error) {
       console.error('Merge Arcana boot failed', error);
       document.querySelector('#screen').innerHTML = `<section class="boot-error"><h2>Файлы игры обновились не полностью</h2><p>Safari сохранил смесь старой и новой версии. Прогресс не удалится.</p><button id="repair-game">Очистить кэш игры и перезапустить</button></section>`;
