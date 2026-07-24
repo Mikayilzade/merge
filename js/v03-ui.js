@@ -79,6 +79,19 @@ function relabelRanges(root = document) {
   });
 }
 
+function refreshBuildCopy(root = document) {
+  const eyebrow = root.querySelector('.hero-v2 .eyebrow');
+  if (eyebrow && !eyebrow.dataset.v03) {
+    eyebrow.textContent = 'ПРОТОТИП 0.3 · ГЕКС-ТАКТИКА · 2,5D';
+    eyebrow.dataset.v03 = '1';
+  }
+  root.querySelectorAll('.guide-steps article p').forEach((paragraph) => {
+    if (paragraph.textContent.includes('Верхний ряд ближе к противнику')) {
+      paragraph.textContent = 'Расставь бойцов на своей стороне. В бою они занимают отдельные гексы: танки держат проходы, дальники стреляют через несколько клеток, а занятый гекс нельзя пересечь или разделить с другим бойцом.';
+    }
+  });
+}
+
 function enhance() {
   const screen = document.querySelector('#screen');
   if (!screen) return;
@@ -88,6 +101,7 @@ function enhance() {
   }
   updateHpLabels(screen);
   relabelRanges(document);
+  refreshBuildCopy(document);
 }
 
 let scheduled = false;
