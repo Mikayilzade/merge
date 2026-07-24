@@ -1,15 +1,17 @@
-const CACHE = 'merge-arcana-v3-0.2.2';
+const CACHE = 'merge-arcana-v4-0.3.0';
 const CORE = [
   './',
   './index.html',
-  './wiki.html?v=0.2.2',
-  './styles.css?v=0.2.2',
-  './manifest.webmanifest?v=0.2.2',
-  './assets/icon.svg?v=0.2.2',
-  './js/app.js?v=0.2.2',
-  './js/data.js?v=0.2.2',
-  './js/engine.js?v=0.2.2',
-  './js/characters.js?v=0.2.2'
+  './wiki.html?v=0.3.0',
+  './styles.css?v=0.3.0',
+  './styles-v03.css?v=0.3.0',
+  './manifest.webmanifest?v=0.3.0',
+  './assets/icon.svg?v=0.3.0',
+  './js/app.js?v=0.3.0',
+  './js/data.js?v=0.3.0',
+  './js/engine-v03.js?v=0.3.0',
+  './js/characters.js?v=0.3.0',
+  './js/v03-ui.js?v=0.3.0'
 ];
 
 self.addEventListener('install', (event) => {
