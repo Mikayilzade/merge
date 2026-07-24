@@ -1,0 +1,65 @@
+/* Merge Arcana 0.3 — tactical hex arena */
+html[data-merge-build="0.3.0"] .build-label::after { content:' · HEX'; }
+
+.match-screen.hex-v03 { --hex-w:13.1%; --hex-h:13.7%; }
+.match-screen.hex-v03 .match-header { position:relative; padding-bottom:34px; }
+.match-screen.hex-v03 .match-economy { opacity:.72; }
+.power-versus { position:absolute; left:50%; bottom:2px; transform:translateX(-50%); display:flex; align-items:center; gap:9px; min-width:184px; justify-content:center; padding:5px 10px; border-radius:15px; border:1px solid #ffffff1d; background:linear-gradient(90deg,#173431d9,#261a3ee8,#421c30d9); box-shadow:0 6px 18px #0005; z-index:30; }
+.power-versus span { min-width:58px; display:flex; align-items:baseline; justify-content:center; gap:5px; }
+.power-versus small { font-size:6px; letter-spacing:.12em; font-weight:900; opacity:.75; }
+.power-versus b { font-size:12px; }
+.power-versus strong { font-size:12px; color:#ffd66f; }
+.power-you b { color:#70efbd; }.power-enemy b { color:#ff8298; }
+
+.hex-v03 .arena-wrap { min-height:330px; background:linear-gradient(180deg,#302151 0 8%,#263154 8% 46%,#193a3d 46% 100%); box-shadow:inset 0 0 70px #0007,0 18px 38px #0005; }
+.hex-v03 .arena-sky { opacity:.42; }
+.hex-v03 .arena-floor { display:none; }
+
+.battle-hex-grid { position:absolute; inset:7% 3% 4%; z-index:4; pointer-events:none; }
+.battle-hex { --x:calc(4.5% + var(--hex-col) * 13.45% + (var(--hex-row) - 2 * floor(var(--hex-row) / 2)) * 6.72%); position:absolute; width:13.1%; height:15.1%; left:calc(4.5% + var(--hex-col) * 13.45%); top:calc(var(--hex-row) * 13.25%); clip-path:polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%); border:1px solid transparent; background:rgba(255,255,255,.032); filter:drop-shadow(0 0 1px rgba(255,255,255,.18)); }
+.battle-hex.row-1,.battle-hex.row-3,.battle-hex.row-5 { transform:translateX(50%); }
+.battle-hex.enemy-zone { background:linear-gradient(145deg,rgba(255,104,137,.065),rgba(122,62,132,.035)); box-shadow:inset 0 0 0 1px rgba(255,126,155,.12); }
+.battle-hex.player-zone { background:linear-gradient(145deg,rgba(81,224,177,.07),rgba(43,132,122,.04)); box-shadow:inset 0 0 0 1px rgba(104,235,194,.13); }
+.battle-hex.neutral-zone { background:linear-gradient(145deg,rgba(255,214,111,.075),rgba(115,96,56,.035)); box-shadow:inset 0 0 0 1px rgba(255,215,118,.14); }
+
+.hex-v03 .plan-board { left:18%; right:18%; bottom:4%; height:40%; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(3,1fr); gap:0; transform:none; z-index:12; }
+.hex-v03 .board-slot { min-height:0; border:0; border-radius:0; background:rgba(255,255,255,.025); clip-path:polygon(25% 2%,75% 2%,100% 50%,75% 98%,25% 98%,0 50%); box-shadow:inset 0 0 0 1px rgba(255,255,255,.13); margin:-4% 1%; }
+.hex-v03 .board-slot:nth-child(4),.hex-v03 .board-slot:nth-child(5),.hex-v03 .board-slot:nth-child(6) { transform:translateX(50%); }
+.hex-v03 .board-slot.front { box-shadow:inset 0 0 0 1.5px rgba(255,214,106,.34); }
+.hex-v03 .board-slot.selected { outline:none; box-shadow:inset 0 0 0 2px #ffd56a,0 0 18px #ffd56a35; background:rgba(255,213,106,.13); }
+.hex-v03 .plan-board.battle-hidden { opacity:0; transform:none; }
+.hex-v03 .team-cap { bottom:5px; background:#0b2525e8; }
+
+.hex-v03 .enemy-preview { z-index:22; }
+.hex-v03 .enemy-title { background:#231229e8; border:1px solid #ff809322; }
+.hex-v03 .mini-unit { background:#241731e8; }
+
+.hex-v03 .combatant { width:64px; height:91px; transform:translate(-50%,-66%) scale(var(--depth-scale)); transition:left .13s ease-out,top .13s ease-out,opacity .28s,filter .16s; }
+.hex-v03 .combat-art { inset:0 0 17px; }
+.hex-v03 .combat-name { bottom:8px; font-size:6px; max-width:74px; overflow:hidden; text-overflow:ellipsis; }
+.hex-v03 .hpbar { left:4px; right:4px; bottom:-7px; height:9px; overflow:visible; background:#1a0d17; border:1px solid #ffffff29; box-shadow:0 2px 5px #0008; }
+.hex-v03 .hpbar i { border-radius:99px; overflow:hidden; }
+.hex-v03 .hp-number { position:absolute; left:50%; top:-13px; transform:translateX(-50%); min-width:27px; padding:1px 3px; border-radius:5px; background:#0d0b14dc; color:#fff; font-size:6.5px; line-height:10px; font-style:normal; font-weight:850; text-shadow:0 1px 2px #000; pointer-events:none; }
+.hex-v03 .combatant.enemy .hp-number { color:#ffd8df; }
+.hex-v03 .combatant.player .hp-number { color:#c9ffec; }
+.hex-v03 .combat-shadow { width:42px; height:12px; bottom:7px; }
+.hex-v03 .projectile { z-index:80; }
+
+.hex-v03 .deploy-panel { position:relative; z-index:40; background:#110d1c; }
+.hex-v03 .synergies { padding-top:4px; }
+.hex-v03 .bench-slot { min-height:55px; }
+.hex-v03 .shop-row { scrollbar-width:none; }
+.hex-v03 .shop-row::-webkit-scrollbar { display:none; }
+
+@media (max-width:430px) {
+  .hex-v03 .arena-wrap { min-height:355px; border-radius:20px; }
+  .hex-v03 .combatant { width:58px; height:84px; }
+  .hex-v03 .plan-board { left:10%; right:10%; height:37%; }
+  .power-versus { min-width:170px; }
+}
+
+@media (min-width:800px) {
+  .hex-v03 .arena-wrap { min-height:420px; }
+  .hex-v03 .combatant { width:72px; height:101px; }
+  .hex-v03 .hp-number { font-size:7px; }
+}
