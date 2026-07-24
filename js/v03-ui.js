@@ -34,7 +34,8 @@ function enhancePowerReadout(screen) {
     versus.className = 'power-versus';
     header.append(versus);
   }
-  versus.innerHTML = `<span class="power-you"><small>ТЫ</small><b>${own}</b></span><strong>⚔</strong><span class="power-enemy"><small>ВРАГ</small><b>${enemy}</b></span>`;
+  const markup = `<span class="power-you"><small>ТЫ</small><b>${own}</b></span><strong>⚔</strong><span class="power-enemy"><small>ВРАГ</small><b>${enemy}</b></span>`;
+  if (versus.innerHTML !== markup) versus.innerHTML = markup;
 }
 
 function enhanceArena(screen) {
@@ -47,20 +48,24 @@ function enhanceArena(screen) {
   if (enemyTitle) enemyTitle.title = 'Состав соперника фиксируется на весь раунд и не меняется от твоей перестановки.';
 }
 
+function setHpLabel(bar, fill) {
+  if (!bar || !fill) return;
+  let label = bar.querySelector('.hp-number');
+  if (!label) {
+    label = document.createElement('em');
+    label.className = 'hp-number';
+    bar.append(label);
+  }
+  const width = parseFloat(fill.style.width || '100');
+  const value = Number.isFinite(width) ? Math.max(0, Math.min(100, Math.round(width))) : 100;
+  const text = `${value}%`;
+  if (label.textContent !== text) label.textContent = text;
+}
+
 function updateHpLabels(root = document) {
   root.querySelectorAll('.combatant').forEach((combatant) => {
     const bar = combatant.querySelector('.hpbar');
-    const fill = bar?.querySelector('i');
-    if (!bar || !fill) return;
-    let label = bar.querySelector('.hp-number');
-    if (!label) {
-      label = document.createElement('em');
-      label.className = 'hp-number';
-      bar.append(label);
-    }
-    const width = parseFloat(fill.style.width || '100');
-    const value = Number.isFinite(width) ? Math.max(0, Math.min(100, Math.round(width))) : 100;
-    label.textContent = `${value}%`;
+    setHpLabel(bar, bar?.querySelector('i'));
   });
 }
 
@@ -100,12 +105,10 @@ const observer = new MutationObserver((mutations) => {
   for (const mutation of mutations) {
     if (mutation.type === 'attributes' && mutation.target.matches?.('.hpbar i')) {
       const bar = mutation.target.closest('.hpbar');
-      const label = bar?.querySelector('.hp-number');
-      if (label) {
-        const value = Math.max(0, Math.min(100, Math.round(parseFloat(mutation.target.style.width || '100'))));
-        label.textContent = `${Number.isFinite(value) ? value : 100}%`;
-      } else needsFull = true;
-    } else if (mutation.type === 'childList') needsFull = true;
+      setHpLabel(bar, mutation.target);
+    } else if (mutation.type === 'childList' && [...mutation.addedNodes].some((node) => node.nodeType === 1)) {
+      needsFull = true;
+    }
   }
   if (needsFull) scheduleEnhance();
 });
