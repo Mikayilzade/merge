@@ -10,7 +10,7 @@ import {
   rangeInHexes,
   ringCells,
   seededRandom
-} from '../js/engine-v03.js';
+} from '../js/engine-v031.js';
 
 test('combat ranges are expressed in hexes', () => {
   assert.equal(rangeInHexes('guardian'), 1);
@@ -40,6 +40,24 @@ test('opponent composition stays fixed for the whole round', () => {
   const a = generateEnemyTeam({ round: 7, playerPower: 300, random: seededRandom(1) });
   const b = generateEnemyTeam({ round: 7, playerPower: 9000, random: seededRandom(999) });
   assert.deepEqual(a, b);
+});
+
+test('planning front row becomes the closest player combat row', () => {
+  const battle = createBattle({
+    playerUnits: [
+      { uid: 'front', unitId: 'guardian', star: 1, slot: 0 },
+      { uid: 'middle', unitId: 'duelist', star: 1, slot: 3 },
+      { uid: 'back', unitId: 'ranger', star: 1, slot: 6 }
+    ],
+    enemyUnits: [{ uid: 'enemy', unitId: 'guardian', star: 1, slot: 0 }],
+    random: seededRandom(4)
+  });
+  const front = battle.units.find((unit) => unit.uid === 'front');
+  const middle = battle.units.find((unit) => unit.uid === 'middle');
+  const back = battle.units.find((unit) => unit.uid === 'back');
+  assert.equal(front.row, 4);
+  assert.equal(middle.row, 5);
+  assert.equal(back.row, 6);
 });
 
 test('living combatants never share the same hex', () => {
