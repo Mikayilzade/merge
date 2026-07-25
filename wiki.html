@@ -6,90 +6,113 @@
   <meta name="theme-color" content="#171229">
   <title>Merge Arcana — Вики</title>
   <style>
-    :root{font-family:Inter,-apple-system,BlinkMacSystemFont,"SF Pro Rounded","Segoe UI",sans-serif;color:#f8f4ff;background:#0e0b18;--panel:#1d1730;--line:#ffffff1c;--muted:#bdb3d0;--violet:#9c79ff;--gold:#ffd56a}
+    :root{font-family:Inter,-apple-system,BlinkMacSystemFont,"SF Pro Rounded","Segoe UI",sans-serif;color:#f8f4ff;background:#0e0b18;--panel:#1d1730;--line:#ffffff1c;--muted:#bdb3d0;--violet:#9c79ff;--gold:#ffd56a;--green:#70efbd;--red:#ff8298}
     *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% -10%,#3d2b71 0,#171129 35%,#0d0b17 100%);line-height:1.45}
-    main{max-width:760px;margin:auto;padding:calc(16px + env(safe-area-inset-top)) 14px calc(40px + env(safe-area-inset-bottom))}
-    a{color:inherit}.back{display:inline-flex;gap:8px;align-items:center;text-decoration:none;padding:9px 12px;border:1px solid var(--line);border-radius:13px;background:#ffffff0b}
-    header{padding:28px 4px 18px}.eyebrow{font-size:11px;letter-spacing:.14em;font-weight:900;color:#cbb7ff;margin:0 0 6px}h1{font-size:38px;line-height:1;margin:0 0 10px}header p{color:var(--muted);margin:0;max-width:620px}
-    nav{display:flex;gap:7px;overflow:auto;padding-bottom:10px;position:sticky;top:0;background:#100d1de8;backdrop-filter:blur(14px);z-index:5}nav a{white-space:nowrap;text-decoration:none;padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:#211a37;font-size:12px}
+    main{max-width:820px;margin:auto;padding:calc(16px + env(safe-area-inset-top)) 14px calc(40px + env(safe-area-inset-bottom))}a{color:inherit}
+    .back{display:inline-flex;gap:8px;align-items:center;text-decoration:none;padding:9px 12px;border:1px solid var(--line);border-radius:13px;background:#ffffff0b}
+    header{padding:28px 4px 18px}.eyebrow{font-size:11px;letter-spacing:.14em;font-weight:900;color:#cbb7ff;margin:0 0 6px}h1{font-size:38px;line-height:1;margin:0 0 10px}header p{color:var(--muted);margin:0;max-width:680px}
+    nav{display:flex;gap:7px;overflow:auto;padding:9px 0;position:sticky;top:0;background:#100d1de8;backdrop-filter:blur(14px);z-index:5}nav a{white-space:nowrap;text-decoration:none;padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:#211a37;font-size:12px}
     section{margin-top:18px;padding:16px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#251c3d,#181327)}h2{margin:0 0 10px;font-size:22px}h3{margin:13px 0 5px}.note{color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card{padding:12px;border:1px solid var(--line);border-radius:15px;background:#ffffff08}.card b{display:block;margin-bottom:4px}.card p{margin:0;color:var(--muted);font-size:12px}
-    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px}table{border-collapse:collapse;min-width:760px;width:100%;font-size:12px}th,td{padding:9px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}th{background:#ffffff0d;color:#e6d9ff;position:sticky;top:0}tr:last-child td{border-bottom:0}
+    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px}table{border-collapse:collapse;min-width:780px;width:100%;font-size:12px}th,td{padding:9px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}th{background:#ffffff0d;color:#e6d9ff;position:sticky;top:0}tr:last-child td{border-bottom:0}
     .formula{padding:11px 12px;border-left:3px solid var(--violet);background:#ffffff08;border-radius:0 12px 12px 0;margin:8px 0;font-size:13px}.formula strong{color:#ffe49b}.synergy{display:grid;grid-template-columns:38px 1fr;gap:9px;align-items:start}.synergy span{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:#936cff22;border:1px solid #b69bff44;font-size:19px}.synergy p{margin:2px 0;color:var(--muted);font-size:12px}
-    .footer{color:#8f879d;text-align:center;font-size:11px;margin-top:22px}@media(max-width:520px){.grid{grid-template-columns:1fr}h1{font-size:34px}section{padding:14px}}
+    .hex-demo{display:grid;grid-template-columns:repeat(7,34px);gap:2px;justify-content:center;margin:15px auto 8px;max-width:100%;overflow:hidden}.hex-demo i{width:38px;height:34px;clip-path:polygon(25% 2%,75% 2%,100% 50%,75% 98%,25% 98%,0 50%);background:#69d7b52c;box-shadow:inset 0 0 0 1px #7ce8c344}.hex-demo i:nth-child(n+1):nth-child(-n+21){background:#ff82981b;box-shadow:inset 0 0 0 1px #ff82982d}.hex-demo i:nth-child(n+22):nth-child(-n+28){background:#ffd56a1d;box-shadow:inset 0 0 0 1px #ffd56a35}
+    .footer{color:#8f879d;text-align:center;font-size:11px;margin-top:22px}@media(max-width:520px){.grid{grid-template-columns:1fr}h1{font-size:34px}section{padding:14px}.hex-demo{transform:scale(.9);transform-origin:center}}
   </style>
 </head>
-<body>
-<main>
-  <a class="back" href="./?v=0.2.2">← Вернуться в игру</a>
-  <header><p class="eyebrow">ВИКИ · ВЕРСИЯ 0.2.2</p><h1>Merge Arcana</h1><p>Полный справочник по характеристикам, героям, формулам, синергиям, двум магазинам и экономике. Эта страница статическая и должна открываться даже при проблемах с игровым JavaScript.</p></header>
-  <nav><a href="#stats">Статы</a><a href="#heroes">Герои</a><a href="#synergies">Синергии</a><a href="#formulas">Формулы</a><a href="#shops">Магазины</a><a href="#economy">Экономика</a><a href="#troubleshooting">Проблемы</a></nav>
+<body><main>
+  <a class="back" href="./?v=0.3.0">← Вернуться в игру</a>
+  <header><p class="eyebrow">ВИКИ · ВЕРСИЯ 0.3.0</p><h1>Merge Arcana</h1><p>Справочник по гекс-арене, характеристикам, героям, синергиям, формулам и экономике. Wiki остаётся статической, поэтому открывается даже если игровой JavaScript временно не загрузился.</p></header>
+  <nav><a href="#arena">Арена</a><a href="#stats">Статы</a><a href="#heroes">Герои</a><a href="#synergies">Синергии</a><a href="#formulas">Формулы</a><a href="#shops">Магазины</a><a href="#economy">Экономика</a><a href="#future">Будущее</a></nav>
+
+  <section id="arena"><h2>Гекс-арена 7×7</h2><p class="note">Главное изменение версии 0.3: бой больше не происходит в свободных координатах. Каждый живой боец занимает ровно один шестиугольник.</p>
+    <div class="hex-demo">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+    <div class="grid">
+      <article class="card"><b>Одна клетка — один боец</b><p>Союзник и противник не могут стоять в одном гексе. Занятые клетки становятся препятствиями для движения.</p></article>
+      <article class="card"><b>Окружение</b><p>У центрального гекса шесть соседей. Жирного Стража можно буквально окружить шестью ближниками, пока Хранительница лечит его из-за спины.</p></article>
+      <article class="card"><b>Путь</b><p>Боец идёт только через соседние свободные гексы. Если прямой путь занят, движок ищет обход.</p></article>
+      <article class="card"><b>Честный соперник</b><p>Состав противника фиксируется на весь раунд. Перестановка твоих героев больше не должна скрытно менять вражеский состав.</p></article>
+      <article class="card"><b>Дальность</b><p>Теперь измеряется в гексах. Ближники бьют соседнюю клетку, дальники начинают стрелять, как только цель входит в их радиус.</p></article>
+      <article class="card"><b>Читаемость</b><p>В бою постоянно показываются ТЫ ⚔ ВРАГ, а над полоской здоровья — текущий процент HP.</p></article>
+    </div>
+  </section>
 
   <section id="stats"><h2>Что означают характеристики</h2><div class="grid">
-    <article class="card"><b>❤ Здоровье</b><p>Сколько урона герой выдержит до смерти. У танков высокое здоровье, у стрелков и магов — низкое.</p></article>
-    <article class="card"><b>⚔ Сила удара</b><p>Сырой урон одной обычной атаки до учёта брони цели, крита и уникальной способности.</p></article>
-    <article class="card"><b>✚ Лечение</b><p>Сколько здоровья восстанавливает одно действие поддержки. Лечение может критовать.</p></article>
-    <article class="card"><b>⌁ DPS / поддержка в секунду</b><p>Средний урон или лечение в секунду с учётом частоты действий и среднего крита. Это ориентир: движение и смена целей снижают реальный результат.</p></article>
-    <article class="card"><b>⏱ Атак в секунду</b><p>Частота действий. Рассчитывается как 1 ÷ интервал атаки. Чем выше число, тем чаще герой атакует или лечит.</p></article>
-    <article class="card"><b>➜ Скорость движения</b><p>Как быстро герой сокращает дистанцию до выбранной цели. Особенно важна ближним бойцам и убийцам.</p></article>
-    <article class="card"><b>◎ Дальность</b><p>Расстояние, с которого можно начать действие. Большая дальность помогает атаковать, не входя в ближний бой.</p></article>
-    <article class="card"><b>⬢ Броня</b><p>Доля предотвращённого физического и магического урона. 20% брони превращают 100 сырого урона в 80.</p></article>
-    <article class="card"><b>✸ Крит</b><p>Показывается как шанс × множитель. Например 15% ×1,65: примерно каждая седьмая атака наносит 165% урона.</p></article>
-    <article class="card"><b>Сила команды</b><p>Сводная оценка эффективного здоровья, DPS, лечения, дальности и урона по области. Она помогает сравнивать составы, но не гарантирует победу.</p></article>
+    <article class="card"><b>❤ Здоровье</b><p>Сколько урона герой выдержит до смерти.</p></article>
+    <article class="card"><b>⚔ Сила удара</b><p>Сырой урон обычной атаки до брони, крита и способности.</p></article>
+    <article class="card"><b>✚ Лечение</b><p>Сколько HP восстанавливает одно действие поддержки. Лечение может критовать.</p></article>
+    <article class="card"><b>⌁ DPS</b><p>Средний урон или лечение в секунду. Это ориентир: путь, выбор цели и простои меняют реальный результат.</p></article>
+    <article class="card"><b>⏱ Атак в секунду</b><p>1 ÷ интервал атаки. Чем выше, тем чаще действие.</p></article>
+    <article class="card"><b>➜ Скорость движения</b><p>Определяет, как часто герой может перейти на соседний свободный гекс.</p></article>
+    <article class="card"><b>◎ Дальность</b><p>Количество гексов до цели, с которого герой может атаковать или лечить.</p></article>
+    <article class="card"><b>⬢ Броня</b><p>Доля предотвращённого урона. 20% брони превращают 100 сырого урона в 80.</p></article>
+    <article class="card"><b>✸ Крит</b><p>Шанс × множитель. 15% ×1,65 означает 15% шанс нанести 165% обычного урона.</p></article>
+    <article class="card"><b>Сила команды</b><p>Сводная оценка HP, DPS, лечения, дальности и массового урона. Не гарантирует победу: геометрия теперь важнее.</p></article>
   </div></section>
 
-  <section id="heroes"><h2>Герои: базовые статы 1★</h2><p class="note">Это база карты первого уровня без Архонта, артефакта и синергии. В самой игре итоговые значения пересчитываются автоматически.</p><div class="table-wrap"><table><thead><tr><th>Герой</th><th>Редкость</th><th>Цена</th><th>Роль</th><th>HP</th><th>Удар/леч.</th><th>Интервал</th><th>Движ.</th><th>Дальность</th><th>Броня</th><th>Крит</th></tr></thead><tbody>
-    <tr><td>Страж Рассвета</td><td>Обычный</td><td>3</td><td>Танк</td><td>290</td><td>19</td><td>1,12 c</td><td>28</td><td>22</td><td>18%</td><td>4% ×1,50</td></tr>
-    <tr><td>Клинок Ветра</td><td>Обычный</td><td>2</td><td>Боец</td><td>170</td><td>30</td><td>0,74 c</td><td>43</td><td>20</td><td>7%</td><td>9% ×1,55</td></tr>
-    <tr><td>Следопыт Пепельных Лесов</td><td>Обычный</td><td>3</td><td>Стрелок</td><td>116</td><td>30</td><td>0,94 c</td><td>31</td><td>116</td><td>3%</td><td>15% ×1,65</td></tr>
-    <tr><td>Арканист Семи Печатей</td><td>Редкий</td><td>4</td><td>Маг</td><td>100</td><td>46</td><td>1,32 c</td><td>26</td><td>108</td><td>2%</td><td>7% ×1,55</td></tr>
-    <tr><td>Хранительница Искры</td><td>Редкая</td><td>3</td><td>Поддержка</td><td>124</td><td>29 леч.</td><td>1,08 c</td><td>29</td><td>102</td><td>4%</td><td>4% ×1,50</td></tr>
-    <tr><td>Подрывник Громовой Артели</td><td>Редкий</td><td>4</td><td>Артиллерия</td><td>92</td><td>39</td><td>1,50 c</td><td>24</td><td>132</td><td>6%</td><td>6% ×1,60</td></tr>
-    <tr><td>Тень Безымянного Двора</td><td>Эпическая</td><td>5</td><td>Убийца</td><td>132</td><td>37</td><td>0,82 c</td><td>49</td><td>20</td><td>5%</td><td>18% ×1,70</td></tr>
-    <tr><td>Пиромант Алого Осколка</td><td>Эпический</td><td>5</td><td>Маг</td><td>104</td><td>43</td><td>1,18 c</td><td>27</td><td>104</td><td>2%</td><td>8% ×1,55</td></tr>
+  <section id="heroes"><h2>Герои: базовые статы 1★</h2><p class="note">База карты уровня 1 без Архонта, артефакта и синергии. Дальность уже переведена в гексы.</p><div class="table-wrap"><table><thead><tr><th>Герой</th><th>Редкость</th><th>Цена</th><th>Роль</th><th>HP</th><th>Удар/леч.</th><th>Интервал</th><th>Движ.</th><th>Дальность</th><th>Броня</th><th>Крит</th></tr></thead><tbody>
+    <tr><td>Страж Рассвета</td><td>Обычный</td><td>3</td><td>Танк</td><td>290</td><td>19</td><td>1,12 c</td><td>28</td><td>1 гекс</td><td>18%</td><td>4% ×1,50</td></tr>
+    <tr><td>Клинок Ветра</td><td>Обычный</td><td>2</td><td>Боец</td><td>170</td><td>30</td><td>0,74 c</td><td>43</td><td>1 гекс</td><td>7%</td><td>9% ×1,55</td></tr>
+    <tr><td>Следопыт Пепельных Лесов</td><td>Обычный</td><td>3</td><td>Стрелок</td><td>116</td><td>30</td><td>0,94 c</td><td>31</td><td>4 гекса</td><td>3%</td><td>15% ×1,65</td></tr>
+    <tr><td>Арканист Семи Печатей</td><td>Редкий</td><td>4</td><td>Маг</td><td>100</td><td>46</td><td>1,32 c</td><td>26</td><td>4 гекса</td><td>2%</td><td>7% ×1,55</td></tr>
+    <tr><td>Хранительница Искры</td><td>Редкая</td><td>3</td><td>Поддержка</td><td>124</td><td>29 леч.</td><td>1,08 c</td><td>29</td><td>3 гекса</td><td>4%</td><td>4% ×1,50</td></tr>
+    <tr><td>Подрывник Громовой Артели</td><td>Редкий</td><td>4</td><td>Артиллерия</td><td>92</td><td>39</td><td>1,50 c</td><td>24</td><td>5 гексов</td><td>6%</td><td>6% ×1,60</td></tr>
+    <tr><td>Тень Безымянного Двора</td><td>Эпическая</td><td>5</td><td>Убийца</td><td>132</td><td>37</td><td>0,82 c</td><td>49</td><td>1 гекс</td><td>5%</td><td>18% ×1,70</td></tr>
+    <tr><td>Пиромант Алого Осколка</td><td>Эпический</td><td>5</td><td>Маг</td><td>104</td><td>43</td><td>1,18 c</td><td>27</td><td>3 гекса</td><td>2%</td><td>8% ×1,55</td></tr>
   </tbody></table></div>
   <h3>Уникальные способности</h3><div class="grid">
     <article class="card"><b>Страж — Последний бастион</b><p>Ниже 45% здоровья получает ещё 10% снижения входящего урона.</p></article>
     <article class="card"><b>Дуэлянт — Третий выпад</b><p>Каждая третья атака наносит 170% обычного урона.</p></article>
     <article class="card"><b>Следопыт — Метка добычи</b><p>Первый выстрел по новой цели всегда критический.</p></article>
-    <article class="card"><b>Арканист — Разлом сферы</b><p>Основная атака наносит 42% урона другим врагам рядом с целью.</p></article>
-    <article class="card"><b>Хранительница — Нить возвращения</b><p>Лечит самого раненого союзника вместо обычной атаки.</p></article>
-    <article class="card"><b>Подрывник — Широкий заряд</b><p>Взрыв наносит 42% урона врагам в большом радиусе.</p></article>
+    <article class="card"><b>Арканист — Разлом сферы</b><p>Основная атака наносит 42% урона врагам на соседних с целью гексах.</p></article>
+    <article class="card"><b>Хранительница — Нить возвращения</b><p>Лечит самого раненого союзника в радиусе вместо обычной атаки.</p></article>
+    <article class="card"><b>Подрывник — Широкий заряд</b><p>Взрыв наносит 42% урона врагам вокруг основной цели.</p></article>
     <article class="card"><b>Тень — Шёпот конца</b><p>Предпочитает хрупкие цели и наносит 155% урона врагам ниже 32% HP.</p></article>
     <article class="card"><b>Пиромант — Живое пламя</b><p>Поджог наносит ещё 22% нанесённого урона за 2,4 секунды.</p></article>
   </div></section>
 
-  <section id="synergies"><h2>Синергии</h2><p class="note">Для активации нужны два разных героя фракции на поле. Две копии одного героя считаются одним видом.</p><div class="grid">
-    <article class="card synergy"><span>☀</span><div><b>Клятва Рассвета</b><p>Страж + Дуэлянт: +20% здоровья и +8 процентных пунктов брони обоим.</p></div></article>
+  <section id="synergies"><h2>Синергии</h2><p class="note">Нужны два разных героя фракции на поле. Две копии одного героя считаются одним видом.</p><div class="grid">
+    <article class="card synergy"><span>☀</span><div><b>Клятва Рассвета</b><p>Страж + Дуэлянт: +20% здоровья и +8 п.п. брони.</p></div></article>
     <article class="card synergy"><span>⟁</span><div><b>Пепельная Охота</b><p>Следопыт + Подрывник: +18% урона и +10% скорости движения.</p></div></article>
     <article class="card synergy"><span>✦</span><div><b>Седьмая Печать</b><p>Арканист + Хранительница: +20% атаки/лечения и действия примерно на 8,7% чаще.</p></div></article>
     <article class="card synergy"><span>☾</span><div><b>Безлунная Завеса</b><p>Тень + Пиромант: +15 п.п. шанса крита и +0,25 к критическому множителю.</p></div></article>
   </div></section>
 
-  <section id="formulas"><h2>Формулы прокачки</h2>
-    <div class="formula"><strong>Итоговый базовый стат</strong> = база героя × множитель звезды × множитель карты × множитель Архонта × артефакт × подходящая синергия.</div>
+  <section id="formulas"><h2>Формулы</h2>
+    <div class="formula"><strong>Базовый стат</strong> = база героя × звезда × карта × Архонт × артефакт × подходящая синергия.</div>
     <div class="formula"><strong>Звёзды:</strong> 1★ ×1,00; 2★ ×1,82; 3★ ×3,28.</div>
     <div class="formula"><strong>Карта:</strong> 1 + (уровень − 1) × 0,06. Уровень 10 = ×1,54.</div>
-    <div class="formula"><strong>Архонт:</strong> 1 + (уровень − 1) × 0,001. Уровень 101 = ×1,10.</div>
-    <div class="formula"><strong>Артефакт:</strong> ×1,10 к здоровью, атаке и лечению на один выбранный раунд.</div>
+    <div class="formula"><strong>Архонт:</strong> 1 + (уровень − 1) × 0,001. Максимума нет.</div>
+    <div class="formula"><strong>Артефакт:</strong> ×1,10 к здоровью, атаке и лечению на выбранный раунд.</div>
     <div class="formula"><strong>Урон после брони:</strong> сырой урон × (1 − броня).</div>
-    <div class="formula"><strong>Атак в секунду:</strong> 1 ÷ интервал атаки.</div>
     <div class="formula"><strong>Средний DPS:</strong> удар × атак/с × [1 + шанс крита × (множитель крита − 1)].</div>
   </section>
 
   <section id="shops"><h2>Два магазина</h2><div class="grid">
-    <article class="card"><b>Внешняя лавка</b><p>Тратит постоянные монеты аккаунта. Продаёт осколки карт, артефакты и косметические темы. Покупки остаются между забегами.</p></article>
-    <article class="card"><b>Магазин забега</b><p>Тратит временное золото конкретного забега. Герой покупается как 1★. Обновление стоит 1 золото, замок сохраняет предложения на следующий раунд.</p></article>
-  </div><h3>Редкости</h3><p class="note">Обычные герои появляются чаще всего. Шанс редких и эпических постепенно растёт с номером раунда; точные проценты показаны над внутренним магазином.</p></section>
+    <article class="card"><b>Внешняя лавка</b><p>Постоянные монеты аккаунта: осколки карт, артефакты и косметика. Всё остаётся между забегами.</p></article>
+    <article class="card"><b>Магазин забега</b><p>Временное золото. Герой покупается как 1★. Обновление стоит 1 золото, замок сохраняет предложения.</p></article>
+  </div></section>
 
   <section id="economy"><h2>Экономика забега</h2><div class="formula"><strong>Доход после раунда</strong> = 5 базовых + процент от накоплений + бонус серии.</div><div class="grid">
-    <article class="card"><b>Процент</b><p>+1 за каждые сохранённые 5 золотых, максимум +3. То есть 15 золота дают полный процент.</p></article>
-    <article class="card"><b>Серия</b><p>Начиная со второй победы или поражения подряд выдаётся дополнительный доход, максимум +2.</p></article>
-    <article class="card"><b>Продажа</b><p>Возвращает часть стоимости. Чем выше звёздность героя, тем выше возврат, но объединение не окупается полностью.</p></article>
+    <article class="card"><b>Процент</b><p>+1 за каждые сохранённые 5 золотых, максимум +3.</p></article>
+    <article class="card"><b>Серия</b><p>Начиная со второй победы или поражения подряд появляется дополнительный доход, максимум +2.</p></article>
+    <article class="card"><b>Продажа</b><p>Возвращает часть стоимости, но объединение полностью не окупается.</p></article>
     <article class="card"><b>Лимит отряда</b><p>Растёт по ходу десяти раундов с 3 до 6 героев.</p></article>
   </div></section>
 
-  <section id="troubleshooting"><h2>Если вместо персонажей видно undefined</h2><p>Это означает, что Safari загрузил несовместимые версии файлов. AdGuard не должен влиять на локальную SVG-графику, но блокировка отдельного запроса могла проявить проблему старого кэша.</p><ol><li>Убедись, что в шапке игры указана версия <b>0.2.2</b>.</li><li>Полностью закрой вкладку или установленную игру и открой снова.</li><li>Если появится экран восстановления, нажми «Очистить кэш игры и перезапустить».</li><li>Прогресс хранится отдельно в localStorage и при обычной очистке кэша игры не удаляется.</li></ol></section>
-  <p class="footer">Merge Arcana · тестовая Wiki 0.2.2</p>
-</main>
-</body>
-</html>
+  <section id="future"><h2>Будущая тактика: направление и спина</h2><p>Движок 0.3 уже хранит направление взгляда бойца как основу будущей механики, но бонус удара в спину пока не включён.</p><div class="grid">
+    <article class="card"><b>Убийцы</b><p>В будущем смогут получать усиленный крит при атаке в заднюю дугу цели.</p></article>
+    <article class="card"><b>Интеллект</b><p>Можно превратить в поведенческий стат: умный Страж будет стараться держать спину к союзнику или краю поля, а не просто идти по кратчайшей линии.</p></article>
+    <article class="card"><b>Прикрытие</b><p>Соседний союзник сможет закрывать удобный путь к спине танка. Тогда расстановка станет важна даже после начала автоматического боя.</p></article>
+    <article class="card"><b>Приоритет</b><p>Эту механику стоит добавлять после стабилизации базового движения: иначе одновременно трудно понять ошибки пути, целей и ориентации.</p></article>
+  </div></section>
+
+  <p class="footer">Merge Arcana · тестовая Wiki 0.3.0</p>
+</main></body></html>
