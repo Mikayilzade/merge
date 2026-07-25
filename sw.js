@@ -1,8 +1,9 @@
-const CACHE = 'merge-arcana-v4-0.3.0';
+const CACHE = 'merge-arcana-v5-0.3.2';
 const CORE = [
-  './','./index.html','./wiki.html?v=0.3.0','./styles.css?v=0.3.0','./styles-v03.css?v=0.3.0',
-  './manifest.webmanifest?v=0.3.0','./assets/icon.svg?v=0.3.0','./js/app.js?v=0.3.0','./js/data.js?v=0.3.0',
-  './js/engine-v03.js?v=0.3.0','./js/engine-v031.js?v=0.3.0','./js/characters.js?v=0.3.0','./js/v03-ui.js?v=0.3.0'
+  './','./index.html','./wiki.html?v=0.3.2','./styles.css?v=0.3.2','./styles-v03.css?v=0.3.2',
+  './manifest.webmanifest?v=0.3.2','./assets/icon.svg?v=0.3.2','./js/app.js?v=0.3.2','./js/data.js?v=0.3.2',
+  './js/engine-v03.js?v=0.3.2','./js/engine-v031.js?v=0.3.2','./js/characters.js?v=0.3.2',
+  './js/v032-ui.js?v=0.3.2','./js/v032-formation.js?v=0.3.2','./js/v032-combat-ui.js?v=0.3.2'
 ];
 self.addEventListener('install',(event)=>{event.waitUntil(caches.open(CACHE).then((cache)=>cache.addAll(CORE)).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',(event)=>{event.waitUntil(caches.keys().then((keys)=>Promise.all(keys.filter((key)=>key.startsWith('merge-arcana-')&&key!==CACHE).map((key)=>caches.delete(key)))).then(()=>self.clients.claim()));});
