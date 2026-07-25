@@ -1,9 +1,9 @@
-const CACHE = 'merge-arcana-v5-0.3.2';
+const CACHE = 'merge-arcana-v6-0.3.3';
 const CORE = [
-  './','./index.html','./wiki.html?v=0.3.2','./styles.css?v=0.3.2','./styles-v03.css?v=0.3.2',
-  './manifest.webmanifest?v=0.3.2','./assets/icon.svg?v=0.3.2','./js/app.js?v=0.3.2','./js/data.js?v=0.3.2',
-  './js/engine-v03.js?v=0.3.2','./js/engine-v031.js?v=0.3.2','./js/characters.js?v=0.3.2',
-  './js/v032-ui.js?v=0.3.2','./js/v032-formation.js?v=0.3.2','./js/v032-combat-ui.js?v=0.3.2'
+  './','./index.html','./wiki.html?v=0.3.3','./styles.css?v=0.3.3','./styles-v03.css?v=0.3.3',
+  './manifest.webmanifest?v=0.3.3','./assets/icon.svg?v=0.3.3','./js/app.js?v=0.3.3','./js/data.js?v=0.3.3',
+  './js/engine-v03.js?v=0.3.3','./js/engine-v031.js?v=0.3.3','./js/engine-v033.js?v=0.3.3','./js/characters.js?v=0.3.3',
+  './js/v032-ui.js?v=0.3.3','./js/v032-formation.js?v=0.3.3','./js/v032-combat-ui.js?v=0.3.3','./js/v033-state.js?v=0.3.3'
 ];
 self.addEventListener('install',(event)=>{event.waitUntil(caches.open(CACHE).then((cache)=>cache.addAll(CORE)).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',(event)=>{event.waitUntil(caches.keys().then((keys)=>Promise.all(keys.filter((key)=>key.startsWith('merge-arcana-')&&key!==CACHE).map((key)=>caches.delete(key)))).then(()=>self.clients.claim()));});
