@@ -1,9 +1,9 @@
-import './v033-state.js?v=0.3.4';
-import './v034-ui.js?v=0.3.4';
-import { enhanceFormation } from './v032-formation.js?v=0.3.4';
-import { enhanceCombatUi, refreshCombatBadges } from './v032-combat-ui.js?v=0.3.4';
+import './v033-state.js?v=0.3.5';
+import './v034-ui.js?v=0.3.5';
+import { enhanceFormation } from './v032-formation.js?v=0.3.5';
+import { enhanceCombatUi, refreshCombatBadges } from './v032-combat-ui.js?v=0.3.5';
 
-const BUILD='0.3.4';
+const BUILD='0.3.5';
 let scheduled=false;
 
 function enhance(){
