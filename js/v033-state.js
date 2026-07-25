@@ -55,14 +55,24 @@ function decorateLossModal() {
   const state = readDifficulty();
   const round = Math.max(1, Number(state.lastRound) || 1);
   const paragraph = result.querySelector('p');
-  if (paragraph) paragraph.textContent = 'Соперник остаётся тем же. Потрать доход, переставь героев или собери усиление и сразу попробуй этот же раунд ещё раз.';
+  const copy = 'Соперник остаётся тем же. Потрать доход, переставь героев или собери усиление и сразу попробуй этот же раунд ещё раз.';
+  if (paragraph && paragraph.textContent !== copy) paragraph.textContent = copy;
 
   const modal = result.closest('.modal');
   const next = modal?.querySelector('[data-action="next-round"]');
-  if (next) next.textContent = `Продолжить · повторить раунд ${round}`;
+  const label = `Продолжить · повторить раунд ${round}`;
+  if (next && next.textContent !== label) next.textContent = label;
 }
 
-const observer = new MutationObserver(() => decorateLossModal());
+let decorating = false;
+const observer = new MutationObserver(() => {
+  if (decorating) return;
+  decorating = true;
+  queueMicrotask(() => {
+    try { decorateLossModal(); }
+    finally { decorating = false; }
+  });
+});
 observer.observe(document.documentElement, { subtree: true, childList: true });
 
 document.addEventListener('click', (event) => {
