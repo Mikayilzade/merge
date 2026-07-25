@@ -49,8 +49,16 @@ function decorateLossModal() {
   const round = Math.max(1, Number(state.lastRound) || 1);
   const paragraph = result.querySelector('p');
   if (paragraph) paragraph.textContent = 'Соперник остаётся тем же. Потрать доход, переставь героев или собери усиление и попробуй решить этот же раунд ещё раз.';
-  const next = document.querySelector('[data-action="next-round"]');
-  if (next) next.textContent = `Повторить раунд ${round}`;
+
+  const modal = result.closest('.modal');
+  if (!modal) return;
+  let actions = modal.querySelector('.modal-actions');
+  if (!actions) {
+    actions = document.createElement('div');
+    actions.className = 'modal-actions';
+    modal.append(actions);
+  }
+  actions.innerHTML = `<button class="primary" type="button" data-retry-round="${round}">Продолжить · повторить раунд ${round}</button>`;
 }
 
 const observer = new MutationObserver(() => decorateLossModal());
@@ -60,11 +68,16 @@ document.addEventListener('click', (event) => {
   const newMatch = event.target.closest?.('[data-action="new-match"]');
   if (newMatch) clearDifficulty();
 
-  const retry = event.target.closest?.('[data-action="next-round"]');
-  if (retry && document.querySelector('.round-result.lost')) {
+  const retry = event.target.closest?.('[data-retry-round]');
+  if (retry) {
     event.preventDefault();
     event.stopImmediatePropagation();
-    location.reload();
+    retry.disabled = true;
+    retry.textContent = 'Возвращаемся к расстановке…';
+    // The saved match has already been rewound to the same round by patchedSetItem.
+    // A controlled reload is needed only to sync app.js module-local state; the user
+    // no longer has to close/reopen the preview manually.
+    setTimeout(() => location.reload(), 60);
   }
 }, true);
 
