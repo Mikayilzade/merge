@@ -20,9 +20,10 @@ function compactPlayerCell(slot = 0) {
   return { col: 2 + (safe % 3), row: 4 + localRow };
 }
 
-export function readStoredFormation(storage = globalThis.localStorage) {
+export function readStoredFormation(storage) {
   try {
-    const parsed = JSON.parse(storage?.getItem?.(FORMATION_STORAGE_KEY) || '{}');
+    const source = storage ?? globalThis.localStorage;
+    const parsed = JSON.parse(source?.getItem?.(FORMATION_STORAGE_KEY) || '{}');
     return parsed && typeof parsed === 'object' ? parsed : {};
   } catch {
     return {};
@@ -90,7 +91,7 @@ function exposeCombatState(battle) {
  * 0.3.2 tactical adapter.
  * The legacy nine board slots remain only as stable inventory positions so old
  * saves, shop purchases and merges continue to work. Actual battle deployment
- * is read from the 21 lower hexes stored by v03-ui.js.
+ * is read from the 21 lower hexes stored by v032-formation.js.
  */
 export function createBattle(options) {
   const battle = createHexBattle(options);
@@ -102,7 +103,7 @@ export function createBattle(options) {
   battle.step = (dt) => {
     const uiSpeed = Math.max(0.5, Math.min(2, Number(globalThis.__mergeBattleSpeed) || 1));
     // app.js historically runs the simulator at x1.45. On screen, x1 in 0.3.2
-    // deliberately slows simulation to ~75% of real time so attacks can be read.
+    // deliberately slows simulation to roughly half of the old visual pace.
     const readableScale = typeof window === 'undefined' ? 1 : 0.52 * uiSpeed;
     const snapshot = baseStep(dt * readableScale);
     exposeCombatState(battle);
