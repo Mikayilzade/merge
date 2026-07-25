@@ -1,0 +1,4 @@
+.battle-report-v04{margin:12px 0;padding:12px;border:1px solid rgba(171,139,255,.28);border-radius:16px;background:rgba(22,16,40,.56);text-align:left}
+.battle-report-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:9px}.battle-report-head b{font-size:13px}.battle-report-head span{font-size:11px;color:var(--muted);white-space:nowrap}
+.battle-report-units{display:grid;gap:7px}.battle-report-units>div{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:7px;border-top:1px solid rgba(255,255,255,.07)}.battle-report-units span{font-size:11px;font-weight:700}.battle-report-units small{font-size:10px;color:var(--muted);white-space:nowrap}
+@media(max-width:520px){.battle-report-head,.battle-report-units>div{align-items:flex-start;flex-direction:column;gap:3px}.battle-report-head span,.battle-report-units small{white-space:normal}}
