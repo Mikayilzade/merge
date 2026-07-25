@@ -1,5 +1,5 @@
-import { enhanceFormation } from './v032-formation.js';
-import { enhanceCombatUi, refreshCombatBadges } from './v032-combat-ui.js';
+import { enhanceFormation } from './v032-formation.js?v=0.3.2';
+import { enhanceCombatUi, refreshCombatBadges } from './v032-combat-ui.js?v=0.3.2';
 
 const BUILD='0.3.2';
 let scheduled=false;
