@@ -1,8 +1,9 @@
-import './v033-state.js?v=0.3.3';
-import { enhanceFormation } from './v032-formation.js?v=0.3.3';
-import { enhanceCombatUi, refreshCombatBadges } from './v032-combat-ui.js?v=0.3.3';
+import './v033-state.js?v=0.3.4';
+import './v034-ui.js?v=0.3.4';
+import { enhanceFormation } from './v032-formation.js?v=0.3.4';
+import { enhanceCombatUi, refreshCombatBadges } from './v032-combat-ui.js?v=0.3.4';
 
-const BUILD='0.3.3';
+const BUILD='0.3.4';
 let scheduled=false;
 
 function enhance(){
@@ -19,7 +20,7 @@ const observer=new MutationObserver((mutations)=>{
     if(mutation.type==='attributes'&&mutation.target.matches?.('.hpbar i')){
       const combatant=mutation.target.closest('.combatant');if(combatant)refreshCombatBadges(combatant.parentElement||document);
     }else if(mutation.type==='childList'){
-      const meaningful=[...mutation.addedNodes].some((node)=>node.nodeType===1&&!node.classList?.contains('tactical-deploy-layer')&&!node.classList?.contains('enemy-deploy-layer'));
+      const meaningful=[...mutation.addedNodes].some((node)=>node.nodeType===1&&!node.classList?.contains('tactical-deploy-layer')&&!node.classList?.contains('enemy-deploy-layer')&&!node.classList?.contains('upgrade-preview')&&!node.classList?.contains('daily-rotation-note'));
       if(meaningful)full=true;
     }
   }
