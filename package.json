@@ -1,10 +1,10 @@
 {
   "name": "merge-arcana",
-  "version": "0.3.6",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "scripts": {
     "test": "node --test tests/*.test.mjs",
-    "check": "node --check js/data.js && node --check js/art.js && node --check js/characters.js && node --check js/engine.js && node --check js/engine-v03.js && node --check js/engine-v031.js && node --check js/engine-v033.js && node --check js/engine-v036.js && node --check js/app.js && node --check js/v032-ui.js && node --check js/v032-formation.js && node --check js/v032-combat-ui.js && node --check js/v033-state.js && node --check js/v034-ui.js && node --check sw.js"
+    "check": "node --check js/data.js && node --check js/art.js && node --check js/characters.js && node --check js/engine.js && node --check js/engine/random.js && node --check js/engine/storage.js && node --check js/engine/stats.js && node --check js/engine/economy.js && node --check js/engine/hex-grid.js && node --check js/engine/targeting.js && node --check js/engine/formation.js && node --check js/engine/combat-core.js && node --check js/engine/difficulty.js && node --check js/engine/report.js && node --check js/engine/watchdog.js && node --check js/app.js && node --check js/v032-ui.js && node --check js/v032-formation.js && node --check js/v032-combat-ui.js && node --check js/v033-state.js && node --check js/v034-ui.js && node --check js/ui/bootstrap.js && node --check js/ui/battle-report.js && node --check sw.js"
   }
 }
