@@ -1,5 +1,5 @@
-import { MAX_CARD_LEVEL } from './data.js?v=0.3.4';
-import { calculateUnitStats } from './engine-v033.js?v=0.3.4';
+import { MAX_CARD_LEVEL } from './data.js?v=0.4.0';
+import { calculateUnitStats } from './engine.js?v=0.4.0';
 
 const SAVE_KEY = 'merge-arcana-save-v1';
 
